@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Contracts\" />
+    <None Remove="Features\" />
+    <None Remove="Features\AddressBook\Commands\" />
+    <None Remove="Features\Contacts\Commands\CreateContact\" />
+    <None Remove="Features\Contacts\Commands\UpdateContact\" />
+    <None Remove="Features\Contacts\Commands\DeleteContact\" />
+    <None Remove="Exceptions\" />
+    <None Remove="Mappings\" />
+    <None Remove="Behaviours\" />
+    <None Remove="Features\Contacts\Queries\" />
+    <None Remove="Features\Contacts\Queries\GetContactById\" />
+    <None Remove="Features\Contacts\Queries\GetContacsFiltered\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Contracts\" />
+    <Folder Include="Features\" />
+    <Folder Include="Features\Contacts\Commands\" />
+    <Folder Include="Features\Contacts\Commands\CreateContact\" />
+    <Folder Include="Features\Contacts\Commands\UpdateContact\" />
+    <Folder Include="Features\Contacts\Commands\DeleteContact\" />
+    <Folder Include="Exceptions\" />
+    <Folder Include="Mappings\" />
+    <Folder Include="Behaviours\" />
+    <Folder Include="Features\Contacts\Queries\" />
+    <Folder Include="Features\Contacts\Queries\GetContactById\" />
+    <Folder Include="Features\Contacts\Queries\GetContacsFiltered\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AddressBook.Domain\AddressBook.Domain.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+      
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="FluentValidation" Version="11.5.2" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.5.2" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.0" />
+    
+    <PackageReference Include="LinqKit" Version="1.2.4" />
+  </ItemGroup>
+</Project>

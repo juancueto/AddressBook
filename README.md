@@ -1,18 +1,51 @@
 # AddressBook
 
-docker run --cap-add SYS_PTRACE -e 'ACCEPT_EULA=1' -e 'MSSQL_SA_PASSWORD=yourStrong(!)Password' -p 1433:1433 --name azuresqledge -d mcr.microsoft.com/azure-sql-edge
+## Running Docker Commpose
 
-dotnet ef migrations add Initial --startup-project AddressBook.API --project AddressBook.Infrastructure
-
-dotnet ef database update --project AddressBook.Infrastructure --startup-project AddressBook.API
-
-dotnet ef migrations script --idempotent --startup-project AddressBook.API --project AddressBook.Infrastructure
-
-dotnet ef migrations script --startup-project AddressBook.API --project AddressBook.Infrastructure
-
-docker-compose down
-
-docker-compose up -d --build
-
+Run docker-compose
+```
 docker-compose up -d
+````
+
+Rebuild docker image 
+```
+docker-compose up -d --build
+````
+
+Stop docker compose
+```
+docker-compose down
+```
+
+Create a new migration
+```
+dotnet ef migrations add my_migration --startup-project AddressBook.API --project AddressBook.Infrastructure
+````
+## Database
+
+Apply migrations to the db
+```
+dotnet ef database update --project AddressBook.Infrastructure --startup-project AddressBook.API
+````
+
+Create migration scripts
+```
+dotnet ef migrations script --startup-project AddressBook.API --project AddressBook.Infrastructure
+```
+
+Execute the script file Contacts.sql to insert data to the contacts table.
+
+## Runnin Single Page Application
+
+Install dependencies
+```
+yarn
+```
+Start server
+```
+yarn dev
+```
+
+
+
 
